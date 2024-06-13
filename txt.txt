@@ -1,0 +1,7 @@
+apple 10
+application 5
+banana 4
+hello 2 
+byeee 9 
+zed 8
+applepen 9
