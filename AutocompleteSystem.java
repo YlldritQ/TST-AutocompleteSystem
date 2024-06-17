@@ -5,6 +5,7 @@ import java.io.*;
 
 public class AutocompleteSystem {
     
+    //deklarimi i node te TST 
     private TSTNode root;
     private StringBuilder prefix;
 
@@ -18,7 +19,7 @@ public class AutocompleteSystem {
     }
 
     private TSTNode insert(TSTNode node, String key, int weight, int d) {
-        char c = key.charAt(d);
+        char c = key.charAt(d); 
         if (node == null) {
             node = new TSTNode(c);
         }

@@ -30,25 +30,21 @@ public class Main {
                 }
             }
         }
-
-        List<String> autocompleteResult = autocompleteSystem.autocomplete("ba");
-        FileOutput.writeToFile(autocompleteResult, "output.txt");
         TSTVisualizer.visualizeTST(autocompleteSystem.getRoot(), "", true);
 
         Scanner scanner = new Scanner(System.in);     
         System.out.println("Start typing, and press Enter to submit:");
 
         while (true) {
-            // Read the whole line of input
             String input = scanner.nextLine();
             
             if (input.isEmpty()) {
-                break; // Exit the loop if input is empty
+                break; 
             }
             
             System.out.println("You typed: " + input);
 
-            // Get autocomplete suggestions
+            
             List<String> suggestions = autocompleteSystem.autocomplete(input);
 
             // Display suggestions or "No Suggestions Found!"
@@ -58,7 +54,6 @@ public class Main {
                 System.out.println("Suggestions: " + suggestions);
             }
         }
-
         scanner.close();
     }
 }
