@@ -1,4 +1,6 @@
+// Klasë për vizualizimin e Ternary Search Tree (TST)
 public class TSTVisualizer {
+    // Kode ANSI për ngjyrosjen e tekstit në konzolë
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -8,35 +10,39 @@ public class TSTVisualizer {
     public static final String ANSI_PURPLE = "\u001B[35m";
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
-    public static void visualizeTST(AutocompleteSystem.TSTNode node, String indent, boolean last) {
-        // Implementation for visualizing the TST
 
-            if (node == null) {
-                return;
-            }
-    
-            System.out.print(indent);
-    
-            if (last) {
-                System.out.print("└─");
-                indent += "  ";
-            } else {
-                System.out.print("├─");
-                indent += "│ ";
-            }
-    
-            // Colorize node character based on its properties
-            if (node.isEnd) {
-                System.out.print(ANSI_GREEN + node.character + " (end)" + ANSI_RESET);
-            } else {
-                System.out.print(ANSI_YELLOW + node.character + ANSI_RESET);
-            }
-    
-            System.out.println();
-    
-            visualizeTST(node.left, indent, false);
-            visualizeTST(node.mid, indent, false);
-            visualizeTST(node.right, indent, true);
+    // Metodë për vizualizimin e TST-së duke përdorur tekst të ngjyrosur dhe indentim
+    public static void visualizeTST(AutocompleteSystem.TSTNode node, String indent, boolean last) {
+        // Nëse nyja është null, kthehu
+        if (node == null) {
+            return;
+        }
+
+        // Printo indentimin e dhënë
+        System.out.print(indent);
+
+        // Vendos karakterin e nyjës si nyjë të fundit ose jo të fundit
+        if (last) {
+            System.out.print("└─");
+            indent += "  ";
+        } else {
+            System.out.print("├─");
+            indent += "│ ";
+        }
+
+        // Ngjyros karakterin e nyjës bazuar nëse është fundi i një fjale
+        if (node.isEnd) {
+            System.out.print(ANSI_GREEN + node.character + " (end)" + ANSI_RESET);
+        } else {
+            System.out.print(ANSI_YELLOW + node.character + ANSI_RESET);
+        }
+
+        // Printo një linjë të re
+        System.out.println();
+
+        // Vizualizo nënpemën e majtë, të mesme dhe të djathtë rekursivisht
+        visualizeTST(node.left, indent, false);
+        visualizeTST(node.mid, indent, false);
+        visualizeTST(node.right, indent, true);
     }
 }
-
